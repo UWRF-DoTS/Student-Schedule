@@ -1,0 +1,36 @@
+<tr class="row header highlight"> <!-- highlight marks this as not hidden info ("hideMoreInfo") -->
+    <td class="cell">Days</td>
+    <td class="cell">Time</td>
+    <td class="cell">Room</td>
+</tr>
+<tr ng-repeat="unique in listClass.unique" class="row highlight">
+    <td class="cell">{{ unique.daysString }}</td>
+    <td class="cell">{{ unique.timeStart }} - {{ unique.timeEnd }}</td>
+    <td class="cell">{{ unique.location }}</td>
+</tr>
+
+<tr class="row" ng-click="hideMoreInfo = !hideMoreInfo">
+    <td class="cell moreOptionsCell" colspan = 3>
+        <img class="moreOptionsCellImg" src="icons/more_options.png">
+    </td>
+</tr>
+<tr class="row header" ng-hide="hideMoreInfo">
+    <td class="cell">Class Number</td>
+    <td class="cell">Section</td>
+    <td class="cell">Start/End Dates</td>
+</tr>
+<tr class="row" ng-hide="hideMoreInfo">
+    <td class="cell">{{ listClass.classNumber }}</td>
+    <td class="cell">{{ listClass.section }}</td>
+    <td class="cell">{{ listClass.dateStart }} - {{ listClass.dateEnd }}</td>
+</tr>
+<tr class="row header" ng-hide="hideMoreInfo">
+    <!--<td class="cell">Status</td>-->
+    <td class="cell">Credits</td>
+    <td class="cell" colspan="2">Instructor</td>
+</tr>
+<tr class="row" ng-hide="hideMoreInfo">
+    <!--<td class="cell">{{ listClass.status}}</td>-->
+    <td class="cell">{{ listClass.unitsTaken }}</td>
+    <td class="cell" colspan="2">{{ listClass.instructor }}</td>
+</tr>

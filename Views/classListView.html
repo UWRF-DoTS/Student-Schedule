@@ -1,0 +1,59 @@
+<div id="classesDiv">
+
+    <!-- Empty space between the top of the page and first block -->
+    <div class="buffer-div"></div>
+
+    <div class="moreOptionsModal hideOptionsModal">
+
+        <a href=""> <!-- ColdFusion removal: Link to download course calendar file -->
+            <div class="downloadDiv" style="display: flex; flex-direction: column; align-items: center;">
+                <img class="downloadButton" src="icons/download.png" height="50px" width="50px">
+                <p>Download</p>
+                <p>Calendar</p>
+            </div>
+        </a>
+
+        <a class="close" ng-click="closeMoreOptions()"></a>
+
+    </div>
+
+
+    <div class="dayOptionsModal" ng-show="showDayOptions">
+        <label class="dayOptionLabel">
+            <img class="dayOptionBtn" src="{{ agendaButton }}">
+            <span class="dayOptionSpan">Agenda</span>
+            <input type="radio" checked="checked" name="dayButtonChoice" ng-click="agendaClick();">
+            <span class="radioCheckmark"></span>
+        </label>
+        <label class="dayOptionLabel" ng-show="showOneDayOption">
+            <img class="dayOptionBtn" src="{{ oneDayButton }}">
+            <span class="dayOptionSpan">1 Day</span>
+            <input type="radio" name="dayButtonChoice" ng-click="oneDayClick(); redirect()">
+            <span class="radioCheckmark"></span>
+        </label>
+        <label class="dayOptionLabel">
+            <img class="dayOptionBtn" src="{{ fiveDayButton }}">
+            <span class="dayOptionSpan">5 Days</span>
+            <input type="radio" name="dayButtonChoice" ng-click="fiveDayClick(); redirect()">
+            <span class="radioCheckmark"></span>
+        </label>
+        <label class="dayOptionLabel">
+            <img class="dayOptionBtn" src="{{ sevenDayButton }}">
+            <span class="dayOptionSpan">7 Days</span>
+            <input type="radio" name="dayButtonChoice" ng-click="sevenDayClick(); redirect()">
+            <span class="radioCheckmark"></span>
+        </label>
+    </div>
+
+    <img class="moreOptionsImg" src="icons/optionsButton4.png" ng-click="openMoreOptionsModal()">
+    <img class="dayIcon" src="{{ selectedDayIcon }}" ng-click="showDayOptions = !showDayOptions">
+
+
+
+    <div ng-repeat="listClass in combinedClasses" class="tableWrapper" ng-class="{'firstClass': $first}">
+        <div class="listTitle">
+            <p class="listTitleP">{{ listClass.subjectId }} {{ listClass.catalogNumber }}<br>{{ listClass.title }}</p></div>
+        <table list-class-table class="table desktopTable"></table> <!-- table for desktop (> 799px). hidden when in mobile. -->
+    </div>
+
+</div>

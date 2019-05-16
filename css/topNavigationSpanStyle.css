@@ -1,0 +1,126 @@
+#topNavigationSpan a:focus {
+    border: 1px dotted #fff;
+}
+
+#topNavigationSpan {
+    background-color: #505050;
+    background-color: rgba(80, 80, 80, .82);
+    position: relative;
+    height: 30px;
+    left: 0;
+    /*top: 102px;*/
+    transform: translateZ(0);
+    width: 100%;
+    z-index: 99;
+}
+
+#topNavigationSpan li {
+    line-height: 1.5em;
+}
+
+#topNavigation {
+    margin: auto;
+    position: relative;
+    max-width: 1140px;
+    font-size: 0;
+    height: 100%;
+    width: 100%
+}
+
+#topNavigation a {
+    text-decoration: none;
+}
+
+/* TODO: ??? This might not be needed */
+/*
+#toolContainerMobile, #topNavigationMobile, #mobileNavigation {
+    display: none;
+}
+*/
+
+.topNavItem {
+    width: 18%;
+    font-size: 15px;
+    text-align: left;
+}
+.topNavItem:first-child {
+    text-align: center;
+    width: 10%;
+}
+.topNavItem li {
+    border-bottom: 1px solid #999;
+    padding: 5px 0 5px 25px;
+}
+.topNavItem li:last-child {
+    border: none;
+    padding: 5px 0 10px 25px;
+    border-radius: 0 0 8px 8px;
+}
+.topNavItem li:hover {
+    background-color: #8B8C8D;
+}
+.topNavItem a:hover {
+    text-decoration: none;
+}
+.topNavItem {
+    height: 100%;
+    display: inline-block;
+}
+.topNavItem ul {
+    background-color: #656667;
+    background-color: rgba(101, 102, 103, .95);
+    border: none;
+    border-radius: 0 0 8px 8px;
+    color: #fff;
+    list-style-type: none;
+    margin: 0;
+    padding: 1px 0 0;
+    text-align: left;
+    z-index: 1;
+    clear: both;
+    display: none;
+    position: absolute;
+    width: 18%;
+}
+.topNavItem ul a {
+    color: #fff;
+    display: block;
+}
+.topNavItem ul a:hover {
+    color: #fff;
+}
+.topNavItem:hover ul, .topNavItem.hover ul {
+    display: block;
+}
+.topNavItem:hover .navHeading a, .topNavItem.hover .navHeading a {
+    font-weight: 700;
+    background-color: #000;
+}
+
+.navHeading>a {
+    padding-left: 25px;
+    color: #fff;
+    display: table-cell;
+    vertical-align: middle;
+}
+.topNavItem:hover .navHeading a, .topNavItem.hover .navHeading a {
+    font-weight: 700;
+    background-color: #000;
+}
+.navHeading {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#homeIcon {
+    display: none;
+    max-height: 30px;
+}
+
+.clearDiv {
+    background-color: #fff;
+    width: 100%;
+    clear: both;
+}
+

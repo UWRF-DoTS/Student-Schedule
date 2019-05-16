@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/spanHeaderStyle.css">
+    <link rel="stylesheet" href="css/spanHeaderStyleResponse.css">
+    <link rel="stylesheet" href="css/topNavigationSpanStyle.css">
+    <link rel="stylesheet" href="css/topNavigationSpanStyleResponse.css">
+    <link rel="stylesheet" href="css/footerStyle.css">
+    <link rel="stylesheet" href="css/footerStyleResponse.css">
+    <link rel="stylesheet" href="css/ngScopeCSS.css">
+    <link rel="stylesheet" href="css/loginCSS.css">
+
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+
+    <link rel="shortcut icon" href=""> <!-- eliminates the console error "failed to find from favicon.io" (sometimes... it still does it, usually right after
+                                                I start CORS the first time -->
+
+    <title>Student's Schedule Lookup</title>
+</head>
+
+<body>
+
+<!-- This div contains the AngularJS app, defined in the mainApp module -->
+<!-- All AngularJS content (controllers, services, etc.) defined under this "mainApp" (var "app") will be contained in this -->
+    <div data-ng-app="mainApp">
+
+    <div data-ng-view></div>
+    <!-- This div is where the different views will be injected. See scripts/configurations/routeProvider.config.js -->
+
+</div> <!-- End of module -->
+
+</body>
+
+<!--- Import/include angularJS, ngRoute, moment.js--->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<!-- To use routes, import this. -->
+<script src="scripts/moment.min.js"></script>
+
+<!-- The following two allow the fetch function to be used -->
+<script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+
+<!-- Import my angularJS files -->
+<script src="scripts/app.js"></script>
+
+<script src="scripts/configurations/routeProvider.config.js"></script>
+
+<script src="scripts/controllers/classListController.controller.js"></script>
+<script src="scripts/controllers/classCalendarController.controller.js"></script>
+
+<script src="scripts/directives/listClassTable.directive.js"></script>
+
+<script src="scripts/services/adjustInstructorName.factory.js"></script>
+<script src="scripts/services/calculateEventWidths.service.js"></script>
+<script src="scripts/services/checkDateBounds.service.js"></script>
+<script src="scripts/services/classMaker.service.js"></script>
+<script src="scripts/services/closeEventModal.factory.js"></script>
+<script src="scripts/services/createTimelineElements.factory.js"></script>
+<script src="scripts/services/dateServices.factory.js"></script>
+<script src="scripts/services/fakeClassesFactory.factory.js"></script>
+<script src="scripts/services/getBrowserSize.factory.js"></script>
+<script src="scripts/services/getClassesFactory.factory.js"></script>
+<script src="scripts/services/getScheduleTimestamp.factory.js"></script>
+<script src="scripts/services/openEventModal.factory.js"></script>
+<script src="scripts/services/routeChangeData.factory.js"></script>
+<script src="scripts/services/singleEventMaker.service.js"></script>
+<script src="scripts/services/windowLocationOnLoad.factory.js"></script>
+
+<script async type="text/javascript" src="..."></script> <!--- Campus resource: navigation --->
+<script async type="text/javascript" src="..."></script> <!--- Campus resource: navigation --->
+<script defer type="text/javascript" src="..."></script> <!--- Campus resource: modal JS--->
+<script defer type="text/javascript" src="..."></script>  <!--- Campus resource: alerts --->
+
+</html>
+
+
+

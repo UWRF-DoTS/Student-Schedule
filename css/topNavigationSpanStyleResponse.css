@@ -1,0 +1,14 @@
+@media only screen and (max-width:800px) {
+    #topNavigationSpan {
+        display: none;
+        height: 0;
+    }
+
+    #topNavigation {
+        display: inline-block !important;
+    }
+
+
+}
+
+

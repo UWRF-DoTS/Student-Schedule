@@ -1,0 +1,86 @@
+#toolContainer a:focus, #footer a:focus {
+    border: 1px dotted #fff;
+    display: block;
+}
+
+#footer {
+    background-color: #666768;
+    color: #fff;
+    font-size: .85em !important;
+    margin-top: 30px;
+    padding: 30px 15px;
+    position: relative;
+    /*top: 130px;*/
+}
+
+.textArea {
+    width: 100%;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+
+.pageCenter {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
+    width: 100%;
+}
+
+
+.footerColumn {
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 18%;
+}
+.footerColumn.footerIcon {
+    width: 28%
+}
+.footerColumn li {
+    font-size: 12.8px;
+    list-style: none;
+}
+.footerColumn ul {
+    width: 100%;
+    margin: 10px;
+}
+.footerColumn a {
+    color: #fff;
+    line-height: 20px;
+    text-decoration: none;
+}
+.footerColumn a:visited {
+    color: #fff;
+}
+
+.footerIcon {
+    font-size: 0;
+    margin-top: 38px;
+    width: 100%;
+}
+.footerIcon a {
+    display: inline-block;
+    width: 20%;
+}
+.footerIcon img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#footer p, a {
+    font-family: 'Gotham SSm A', 'Gotham SSm B', san-serif;
+    font-weight: 400;
+}
+
+#superFooter {
+    clear: both;
+    top: 0;
+    text-align: center;
+    line-height: 1.75em;
+}
+#superFooter hr {
+    margin: 0 15px 30px;
+}
+

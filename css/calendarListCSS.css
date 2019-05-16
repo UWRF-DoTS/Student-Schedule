@@ -1,0 +1,18 @@
+/* If I add other paragraphs / span that i want to have different properties, just make a class to apply to the p's i want to adjust. */
+/* It was necessary to apply these at a class/id level, since there were other stylesheets overriding my CCS, and class/IDs take prominence. */
+
+/* as of 5-29 this isn't used */
+
+#classesDiv p{
+    font-size: 16px;
+  /* The following attributes minimize the padding/margin, and decrease line-height so there isn't as big a break in between the
+  class title and the following information. */
+    margin-top: 1px;
+    padding-top: 1px;
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+    line-height: 80%;
+}
+#classesDiv span {
+    font-size: 14px;
+}

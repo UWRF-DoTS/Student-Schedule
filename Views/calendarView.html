@@ -1,0 +1,215 @@
+<div>
+
+    <!-- Provides a margin above .cd-schedule that covers .events-elements when .top-info elements stick -->
+    <div class="buffer-div"></div>
+
+    <div class="moreOptionsModal hideOptionsModal">
+
+
+<!-- To be implemented for events -->
+<!--    <div class="singleEventOptions">-->
+            <!-- ng-click must be applied to the container label and checkbox input. If applied to checkmark span, it will double-click. Won't click at all
+             if only on one. It's actually 3 clicks if you do this. -->
+            <!--
+            <label class="container">Classes
+                <input type="checkbox" checked ng-click="fieldsetClasses()">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Events
+                <input type="checkbox" checked ng-click="fieldsetEvents()"> By default, do not have breaks checked by default
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Breaks
+                <input type="checkbox" checked ng-click="fieldsetBreaks()">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        -->
+
+
+        <a href="" ng-href=" ... ={{emplid}}"> <!-- ColdFusion removal: Link to download course calendar file -->
+            <div class="downloadDiv">
+                <img class="downloadButton" src="icons/download.png" height="50px" width="50px">
+                <p>Download</p>
+                <p>Calendar</p>
+            </div>
+        </a>
+
+        <a class="close moreOptionsClose" ng-click="closeMoreOptions()"></a>
+
+    </div>
+
+    <div class="dayOptionsModal" ng-show="showDayOptions">
+        <label class="dayOptionLabel">
+            <img class="dayOptionBtn" src="{{ agendaButton }}">
+            <span class="dayOptionSpan">Agenda</span>
+            <input type="radio" name="dayButtonChoice" ng-click="agendaClick(); redirect()">
+            <span class="radioCheckmark"></span>
+        </label>
+        <label class="dayOptionLabel" ng-show="showOneDayOption">
+            <img class="dayOptionBtn" src="{{ oneDayButton }}">
+            <span class="dayOptionSpan">1 Day</span>
+            <input class="radioOne" type="radio" checked="checked" name="dayButtonChoice" ng-click="oneDayClick()">
+            <span class="radioCheckmark one"></span>
+        </label>
+        <label class="dayOptionLabel">
+            <img class="dayOptionBtn" src="{{ fiveDayButton }}">
+            <span class="dayOptionSpan">5 Days</span>
+            <input class="radioFive" type="radio" name="dayButtonChoice" ng-click="fiveDayClick()">
+            <span class="radioCheckmark"></span>
+        </label>
+        <label class="dayOptionLabel">
+            <img class="dayOptionBtn" src="{{ sevenDayButton }}">
+            <span class="dayspan">7 Days</span>
+            <input class="radioSeven" type="radio" name="dayButtonChoice" ng-click="sevenDayClick()">
+            <span class="radioCheckmark"></span>
+        </label>
+    </div>
+
+    <img class="moreOptionsImg" src="icons/optionsButton4.png" ng-click="openMoreOptionsModal()">
+    <img class="dayIcon" src="{{ selectedDayIcon }}" ng-click="showDayOptions = !showDayOptions">
+
+    <div class="flex-Container">
+
+        <img class="lastWeek" src={{lastWeekIcon}} ng-mouseover="hoverInLeft()" ng-mouseleave="hoverOutLeft()">
+
+        <div class="cd-schedule">
+
+            <!-- Cover-layer covers the whole screen for the purpose of dimming the background when a class modal is opened for more information. -->
+            <div class="cover-layer"></div>
+
+            <div class="timeline">
+                <ul>
+                    <li data-ng-repeat="time in timeline">
+                        <!-- "timeline" references '$scope.timeline' variable. "time" is an arbitrary name -->
+                        <span>{{time}}</span></li>
+                </ul>
+            </div> <!-- .timeline -->
+
+            <div class="events">
+                <ul>
+                    <li class="events-group" data-ng-show="showSatSun" ng-style="eventsGroupCSS">
+                        <!-- when $scope.noSatSun is true, hide div element -->
+                        <div class="top-info">
+                            <p class="pOne">Sunday</p>
+                            <p class="pTwo">{{ currentWeekHeaders[0][0] }} <br class="pTwoBr"> {{ currentWeekHeaders[1][0] }}</p>
+                        </div>
+                        <ul data-groupNum=0>
+                            <!-- the data-groupNum attribute allows javascript to search for where to put the single-events -->
+                        </ul>
+                    </li>
+                    <li class="events-group" ng-style="eventsGroupCSS"> <!-- an events-group is a day of the week -->
+                        <div class="top-info">
+                            <p class="pOne">Monday</p>
+                            <p class="pTwo">{{ currentWeekHeaders[0][1]}} <br class="pTwoBr"> {{ currentWeekHeaders[1][1] }}</p>
+
+                        </div>
+                        <ul data-groupNum=1>
+                        </ul>
+                    </li>
+
+                    <li class="events-group" ng-style="eventsGroupCSS">
+                        <div class="top-info">
+                            <p class="pOne">Tuesday</p>
+                            <p class="pTwo">{{ currentWeekHeaders[0][2] }} <br class="pTwoBr"> {{ currentWeekHeaders[1][2] }}</p>
+                        </div>
+                        <ul data-groupNum=2>
+                        </ul>
+                    </li>
+
+                    <li class="events-group" ng-style="eventsGroupCSS">
+                        <div class="top-info">
+                            <p class="pOne">Wednesday</p>
+                            <p class="pTwo">{{ currentWeekHeaders[0][3] }} <br class="pTwoBr"> {{ currentWeekHeaders[1][3] }}</p>
+                        </div>
+                        <ul data-groupNum=3>
+                        </ul>
+                    </li>
+
+                    <li class="events-group" ng-style="eventsGroupCSS">
+                        <div class="top-info">
+                            <p class="pOne">Thursday</p>
+                            <p class="pTwo">{{ currentWeekHeaders[0][4] }} <br class="pTwoBr"> {{ currentWeekHeaders[1][4] }}</p>
+                        </div>
+                        <ul data-groupNum=4>
+                        </ul>
+                    </li>
+
+                    <li class="events-group" ng-style="eventsGroupCSS">
+                        <div class="top-info">
+                            <p class="pOne">Friday</p>
+                            <p class="pTwo">{{ currentWeekHeaders[0][5] }} <br class="pTwoBr"> {{ currentWeekHeaders[1][5] }}</p>
+                        </div>
+                        <ul data-groupNum=5>
+                        </ul>
+                    </li>
+                    <li class="events-group" data-ng-show="showSatSun" ng-style="eventsGroupCSS">
+                        <!-- when $scope.noSatSun is true, hide div element -->
+                        <div class="top-info">
+                            <p class="pOne">Saturday</p>
+                            <p class="pTwo">{{ currentWeekHeaders[0][6] }} <br class="pTwoBr"> {{ currentWeekHeaders[1][6] }}</p>
+                        </div>
+                        <ul data-groupNum=6>
+                        </ul>
+                    </li>
+                </ul>
+            </div> <!-- end of events -->
+
+            <div class="event-modal">
+                <header class="modalHeader">
+                    <div class="content">
+                        <p class="event-time-modal"></p>
+                        <p class="event-name-modal"></p>
+                        <p class="event-location-modal"></p>
+                        <br/>
+                        <div class="extended-information"> <!-- hidden until clicked -->
+                            <!-- When there are more than 1 times/days that the class meets, the javascript will add a "<br/>"other class info ..." -->
+                            <p class="extended-information-days-and-time"></p>
+                            <br/>
+                            <p class="extended-information-instructor"></p>
+                            <p class="extended-information-startEndDatesTitle"></p>
+                            <p class="extended-information-startEndDateStart"></p>
+                            <p class="extended-information-startEndDateEnd"></p>
+                            <p class="extended-information-unitsTaken"></p>
+                            <p class="extended-information-classNumber"></p>
+                            <p class="extended-information-section"></p>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="modal-body">
+                    <div class="event-info">
+                        <p class="classTitle"></p>
+                        <p class="classDescription"></p>
+                    </div>
+                    <div class="body-bg">
+
+                    </div>
+                </div>
+
+                <a class="close">Close</a>
+            </div> <!-- .event-modal -->
+
+        </div> <!-- .cd-schedule -->
+
+        <img class="nextWeek" src={{nextWeekIcon}} ng-mouseover="hoverInRight()" ng-mouseleave="hoverOutRight()">
+
+    </div> <!-- .flex-container -->
+
+    <!--<script src="js/modernizr.js"></script>-->
+    <!-- load jquery normally from the server if it hasn't been cached in the browser yet -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- if jquery isn't loaded yet (if (!window.jQuery)), load it (document.write('script ....')) -->
+
+
+    <!--
+    <script>
+        /* this will load jquery locally if something went wrong above. */
+        if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
+    </script>
+    -->
+
+
+</div>

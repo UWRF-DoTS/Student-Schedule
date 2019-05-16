@@ -1,0 +1,67 @@
+.superbutton a {
+    color: #fff;
+    text-decoration: none;
+    top: 50%; /* my addition */
+}
+.superbutton {
+    background-color: #ccc;
+    border-radius: 5px;
+    text-indent: 0;
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 100;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+.superbutton:hover {
+    background-color: #999;
+    background: 0;
+    color: #be0f35;
+    text-decoration: none;
+}
+.superbutton.isRed {
+    background-color: #be0f34;
+}
+.superbutton:active {
+    position: relative;
+    top: 1px;
+}
+
+.greybutton a, .superbutton a {
+    color: #fff;
+    text-decoration: none;
+}
+.greybutton, .superbutton {
+    background-color: #7d7d7d;
+    border-radius: 5px;
+    text-indent: 0;
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 4px;
+    text-align: center;
+    width: 86%;
+}
+.greybutton:hover, .superbutton:hover {
+    background-color: #ababab;
+    color: #fff;
+    text-decoration: none;
+}
+.greybutton:visited, .superbutton:visited {
+    color: #fff;
+}
+.greybutton:active, .superbutton:active {
+    position: relative;
+    top: 1px;
+}
+.greybutton .linkIcon, .superbutton .linkIcon {
+    display: none;
+}
+

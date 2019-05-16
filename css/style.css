@@ -1,0 +1,1220 @@
+/* --------------------------------
+Primary style
+-------------------------------- */
+*, *::after, *::before { /* Every element, and before/after every element */
+    box-sizing: border-box;
+    /* "border-box says to include border, padding, margin in height/width. i.e. width: 300px is the absolute width; the padding
+                                 could be 50 and the border could be 1px, so the "size" part of it will be 198 (1 + 50 + 198 + 50 + 1) = 300 */
+}
+
+html {
+    font-size: 62.5%; /* Set the default font size of the entire document to 10px. */
+}
+
+body {
+    font-size: 1.6rem; /* Set the default font size of the body to 16 px */
+    font-family: "Source Sans Pro", sans-serif;
+    color: #222222;
+    background-color: white;
+}
+
+.ng-scope {
+    position: relative;
+}
+
+
+/************** MORE OPTIONS IMAGE *********************/
+.moreOptionsImg { /* Not scrolled */
+    position: absolute;
+    /* top attribute is set in the controllers */
+    left: 2%;
+    z-index: 6; /* In front of cover-div */
+    width: 60px;
+    height: 60px;
+}
+.moreOptionsImg.isScrolled, .dayIcon.isScrolled, .dayOptionsModal.isScrolled {
+    position: fixed;
+}
+.moreOptionsImg:hover, .dayIcon:hover {
+    background-color: #cecece;
+}
+
+.dayIcon {
+    position: absolute;
+    right: 2%;
+    z-index: 6; /* In front of cover-div */
+    width: 60px;
+    height: 60px;
+}
+/*************END MORE OPTIONS IMAGE***************/
+
+
+/******************* AGENDA VIEW TABLE***************************************/
+.table {
+    width: 60%;
+    margin: auto; /* center in page */
+}
+
+.row {
+    display: table-row;
+    background: #a4525a;
+    /* height is determined by font size + top- and bottom-padding */
+    font-size: 1.5em;
+}
+
+.row.header {
+    color: #ffffff;
+    background: #be626c;
+}
+
+
+.listTitle {
+    background: #BE0F34;
+    width: 60%; /* Set this to whatever the width of ".table" is. */
+    font-family: Poppins-Regular; /* Change to a more serif font than the calendar */
+    font-size: 2em;
+    line-height: 1.2;
+
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #f2f2f2;
+
+    color: white;
+    display: block;
+
+    text-align: center;
+
+    margin: auto;
+}
+
+.listTitleP {
+    margin: auto;
+}
+
+.cell {
+    display: table-cell;
+}
+
+
+
+.row .titleCell { /* define the title's cell separate from others so as to set width */
+    width: 100%;
+}
+
+.row .cell {
+    font-family: Poppins-Regular;
+    color: #fff;
+    line-height: 1.2;
+
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.row.header .cell {
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 550px) {
+    .row.header .cell {
+        font-size: 1em;
+    }
+    .row .cell {
+        font-size: .8em;
+    }
+}
+
+
+
+@media only screen and (min-width: 800px) {
+    .row .cell:nth-child(1) {
+        padding-left: 40px;
+    }
+
+}
+
+.row .cell:nth-child(1) {
+    width: calc(1 / 3 * 100%);
+    padding-left: 10px;
+}
+
+.row .cell:nth-child(2) {
+    width: calc(1 / 3 * 100%);
+    padding-left: 10px;
+}
+
+.row .cell:nth-child(3) {
+    width: calc(1 / 3 * 100%);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.moreOptionsCell {
+    padding-right: 40px; /* Counterbalance the padding-left: 40px from nth-child(1) cascading. */
+}
+
+.moreOptionsCellImg {
+    /* display: block and margin: auto horizontally center an img in a div */
+    display: block;
+    margin: auto;
+}
+
+
+@media only screen and (max-width: 799px) {
+    .tableWrapper {
+        font-size: 75%;
+    }
+
+}
+
+/* Separate each table by 45px */
+.tableWrapper {
+    margin-top: 45px;
+}
+
+/* Elminiate top margin for the first table */
+.tableWrapper.firstClass {
+    margin-top: 0;
+}
+
+/********************** END AGENDA VIEW TABLE ****************************************/
+
+
+/********************** MORE-OPTIONS BAR****************************************/
+.moreOptions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+
+    /* Text will not be highlighted if double-clicked. */
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    flex-direction: column;
+
+    margin: 0 5px;
+    top: 0;
+
+    justify-content: flex-start;
+}
+
+/* The modal that opens when moreOptions is clicked */
+.moreOptionsModal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: fixed;
+    top: 5%;
+    height: 30%;
+    width: 80%;
+    min-width: 150px;
+    min-height: 150px;
+    background-color: white;
+    z-index: 101;
+    left: 10%;
+    border: 2px solid #222222;
+    font-size: 1.5em;
+}
+
+@media only screen and (min-width: 800px) {
+    .moreOptionsModal {
+        height: 25%;
+        max-height: 250px;
+        width: 30%;
+        left: 35%;
+    }
+}
+
+.moreOptionsModal.hideOptionsModal {
+    display: none;
+}
+
+/*********************DAY OPTIONS MODAL*************************/
+
+.dayOptionsModal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* Justify-Content */
+    justify-content: space-evenly;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    /* Align-items */
+    /*align-items: center;*/
+    /*-webkit-box-align: center;*/
+    /*-ms-flex-align: center;*/
+    /* Flex-direction */
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+
+    position: absolute;
+    right: 2%;
+    background-color: pink;
+
+    height: 280px;
+    width: 280px;
+    font-size: 40px;
+
+    z-index: 100;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+
+    opacity: 1;
+
+}
+
+.dayOptionLabel {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* Justify-Content */
+    justify-content: space-between;
+    -webkit-box-pack: space-between;
+    -ms-flex-pack: space-between;
+    /* Align-items */
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    /* Flex-direction ROW by default */
+    cursor: pointer;
+
+}
+
+.dayOptionLabel input {
+    opacity: 0; /* hide the default-style checkbox image */
+    cursor: pointer;
+}
+
+/* Custom radio button */
+.radioCheckmark {
+    height: 26px;
+    width: 26px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+/* On mouse-over, add a darker-grey background color */
+.dayOptionLabel:hover input ~ .radioCheckmark {
+    background-color: #ccc;
+}
+
+/* When radio button is checked, add a Falcon-Red background */
+.dayOptionLabel input:checked ~ .radioCheckmark {
+    background-color: #BE0F34;
+}
+
+/* Create the indicator (white the dot/circle inside checkmark) */
+.dayOptionLabel .radioCheckmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    content: "";
+    position: relative;
+    display: none;
+}
+
+.dayOptionLabel input:checked ~ .radioCheckmark:after {
+    display: block;
+}
+
+.dayOptionBtn {
+    width: 60px;
+    height: 60px;
+}
+
+
+/******** "More-Options-Modal" Buttons for Classes/Events/Breaks Checkboxes**********/
+/* <label> wrapping checkmark, checkbox, and label text */
+.container {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    padding-left: 35px; /* Causes text to not overlap with the checkbox, and have 10px between */
+
+    /* Text will not be highlighted if double-clicked. */
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+}
+
+/* Hide default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a darker grey background */
+.container input:checked ~ .checkmark {
+    background-color: #606060;
+}
+
+/* Create the checkmark inside checkbox circle */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/****** END CHECKBOXES ********/
+
+/* TODO: Re-implement the hidden-event tooltip */
+.notification {
+    position: fixed;
+    top: 70px;
+    left: 30px;
+    opacity: .8;
+}
+
+.notificationTooltip {
+    font-size: .8em;
+    left: 50px;
+    top: 60px;
+    position: fixed;
+    visibility: hidden;
+}
+
+.notification:hover .notificationTooltip {
+    visibility: visible;
+}
+
+@media only screen and (min-width: 800px) {
+    /* Hide button to toggle mobile view if not in mobile. */
+    .mobileSwitch {
+        display: none;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+
+                              Main Components - .flex-Container, .cd-schedule, .last/nextWeek,
+
+--------------------------------------------------------------------------------------------------------------------- */
+
+/* .flex-Container wraps #last/nextWeek and cd-schedule contents in a flexbox, set as rows to get them side-by-side */
+.flex-Container {
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+/* After .flex-Container, revert back to block display. */
+.flex-Container::after {
+    display: block;
+}
+
+.cd-schedule {
+    width: 70%;
+}
+
+/* #last/firstWeek are the forward/backwards arrows */
+.lastWeek {
+    position: fixed;
+    left: 2%;
+    top: 50%;
+    z-index: 102;
+}
+.nextWeek {
+    position: fixed;
+    right: 2%;
+    top: 50%;
+    z-index: 102;
+}
+
+@media only screen and (max-width: 450px) {
+    .lastWeek, .nextWeek, .moreOptionsImg, .dayIcon {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+/************ .isScheduleBound - this class, applied to the lastWeek / nextWeek (or day in mobile) hide them beginning/end of the semester is reached.
+/* "isScheduleBoundMobile" must be differentiated between "isScheduleBound" because in mobile, arrows must not disappear until selected-event is the very first/last date.
+   In desktop, they'll disappear even if selected-event is not the first/last day, but is on the first/last week.
+   The selected-event is, until changed, the current day of the week (or first day of next term if not in term)  */
+
+/* Desktop view */
+@media only screen and (min-width: 800px) {
+    .lastWeek.isScheduleBound, .nextWeek.isScheduleBound {
+        visibility: hidden;
+    }
+}
+
+/* Mobile single-day */
+.lastWeek.isScheduleBoundMobile, .nextWeek.isScheduleBoundMobile {
+    visibility: hidden;
+}
+
+/* Mobile Full Calendar*/
+.cd-schedule.mobileFull .lastWeek.isScheduleBound, .nextWeek.isScheduleBound {
+    visibility: hidden;
+}
+
+/************ end .isScheduleBound ********/
+
+
+/* ---------- Desktop main div, flexbox, and  */
+@media only screen and (min-width: 800px) {
+    /* Set dimensions of schedule */
+    .cd-schedule {
+        width: 80%;
+        max-width: 1400px;
+    }
+
+}
+
+/* TODO: Put these 3 declarations somewhere more logical */
+.cd-schedule.hideClasses .single-event.class {
+    display: none;
+}
+
+.cd-schedule.hideBreaks .single-event.break {
+    display: none;
+}
+
+.cd-schedule.hideEvents .single-event.event {
+    display: none;
+}
+
+/* This is a div used to cover up the ".timeline" elements (times on the side and horizontal bars). When .top-info sticks,
+   those .timeline elements keep scrolling above them */
+.buffer-div {
+    height: 30px;
+    z-index: 5;
+    background: white;
+    position: sticky;
+    top: 0;
+    border-left: none;
+    /*border-width: 5px;*/
+}
+/* Hide on mobile; don't waste the space. */
+@media only screen and (max-width: 800px) {
+    .buffer-div {
+        display: none;
+    }
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------------------
+
+                  .timeline - horizontal and the list of times (8:00, 8:30, 9:00, 13:00, 13:50, 14:00, etc.)
+
+--------------------------------------------------------------------------------------------------------------------- */
+
+.cd-schedule .timeline { /* is a <ul> element */
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 70%;
+    padding-top: 50px; /* This padding allows for .top-info elements (the monday, tuesday, etc. titles) */
+}
+
+@media only screen and (min-width: 800px) {
+    .cd-schedule .timeline {
+        width: 80%;
+    }
+}
+
+/* Set height of each timeline list element. This determines how tall each half-hour period is. */
+.cd-schedule .timeline li {
+    position: relative;
+    height: 30px;
+}
+@media only screen and (min-width: 800px) {
+    .cd-schedule .timeline li {
+        height: 50px;
+    }
+}
+
+
+/* this is used to create the table horizontal lines; makes a height of 1px which is the horizontal line */
+/* Note: When you zoom out enough in the browser, some of these lines start disappearing inconsistently.
+   (In the same browser, at the same zoom, the same lines will disappear, but it's different for each zoom level and each browser.)
+   This is because at 1 pixel, they become so small that the browser doesn't know how to handle them sometimes. */
+.cd-schedule .timeline li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #EAEAEA;
+}
+
+
+/* Make the time numbers "9:00", "13:00", etc. not appear from 800px-1000px */
+.cd-schedule .timeline li span {
+    display: none;
+}
+
+/* Refers to the 9:00, 13:00, etc., span. */
+.cd-schedule .timeline li span {
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Don't show every other (x:30) time span */
+.cd-schedule .timeline li:nth-child(even) span {
+    display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+    .cd-schedule .timeline li::after {
+        width: calc(100% - 60px); /* Shorten the width by the 60px - it's moved over to the right to prevent overflow */
+        left: 60px; /* Places the line 60px to the right so that there's room for the "9:00" span */
+        max-width: 1340px; /* 1400 (.timeline max-width) - 60px taken away */
+    }
+
+    .cd-schedule .timeline li span {
+        /*  translateY(-50%) is what centers it at the line */
+        display: inline-block;
+        transform: translateY(-50%);
+
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+
+                            .events - the columns representing days of the week.
+         .events is a div containing .eventsUL, a list of .events-group <li> elements, each a day of the week
+
+--------------------------------------------------------------------------------------------------------------------- */
+
+.cd-schedule .events {
+    position: relative;
+    z-index: 1;
+}
+
+.cd-schedule .events .events-group {
+    margin-bottom: 30px;
+    /* Don't show .events that are not the selected day (On mobile, only show the one day.) */
+    display: none;
+    height: 1490px; /* Default height for mobile. 48 (# of timeline blocks) * 30 (height in pixels of each block) + 50 (make room for .top-info) */
+}
+
+@media only screen and (min-width: 800px) {
+    .cd-schedule .events .events-group {
+        height: 2450px; /* Default desktop height. 48 * 50 + 50 */
+    }
+}
+
+/* if events-group is selected, it is displayed on mobile */
+.cd-schedule .events .events-group.selected {
+    display: list-item;
+}
+
+.cd-schedule .events .top-info {
+    width: 100%;
+    position: sticky;
+    top: 30px; /* sticks when 30px from top of screen */
+    background-color: #BE0F34; /* Covers the horizontal lines from the timeline */
+    z-index: 4; /* Cover single-events */
+}
+
+@media only screen and (max-width: 800px) {
+    .cd-schedule .events .top-info {
+        top: 0; /* sticks when 0px from top of screen */
+    }
+}
+.cd-schedule .events .top-info .pOne { /* "Monday", "Tuesday", etc. */
+    font-weight: bold;
+    text-align: center;
+    padding-top: 8px;
+    font-size: 1.2em;
+    color: white;
+}
+
+.cd-schedule .events .top-info .pTwo { /* "Jan 28th", "Feb 3rd", etc. */
+    text-align: center;
+    color: white;
+
+}
+
+@media only screen and (max-width: 800px) {
+    .cd-schedule.mobileFull .pOne {
+        display: none;
+    }
+    .cd-schedule.mobileFull .pTwo { /* at < 800px, make it so this is separated into 2 lines. */
+        font-weight: bold;
+        font-size: 1.2em;
+        padding-top: 5px; /* Vertically centers close enough */
+    }
+}
+/* pTwoBr is the <br> element separating "Jan" and "27th" in top-info. It is only displayed when in mobile-calendar view (less than 800px) */
+.cd-schedule .pTwoBr {
+    display: none;
+}
+.cd-schedule.mobileFull .pTwoBr {
+    display: block;
+}
+@media only screen and (min-width: 800px) {
+    .cd-schedule .pTwoBr, .cd-schedule.mobileFull .pTwoBr {
+        display: none;
+    }
+}
+
+.cd-schedule .events .events-group > ul { /* There is only one <ul> element inside each events-group <li> element that this applies to. */
+    position: relative;
+    /* Make flexbox */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column; /* added to make columns */
+    overflow-x: hidden; /* hide scroll-bar on bottom */
+    /* "controls whether or not touch devices use momentum-based scrolling for a given element;
+   content continues to scroll for a bit after removing finger, depending on how fast was moved" */
+    -webkit-overflow-scrolling: touch;
+}
+
+.cd-schedule .events .events-group {
+    border: 1px solid #EAEAEA;
+}
+
+.cd-schedule .events .single-event {
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    /*overflow: auto;*/
+
+    /* shadow on bottom of single-event */
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 800px) {
+    .cd-schedule .events .single-event {
+        font-size: 80%;
+    }
+}
+
+/* Since mobile / desktop have different sizes, singleEventMaker creates 2 elements per event. When in mobile size,
+ * only the mobile ones are visible. Vice-versa for desktop. */
+@media only screen and (max-width: 800px) {
+    .cd-schedule .events .single-event.desktopEvent {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .cd-schedule .events .single-event.mobileEvent {
+        display: none;
+    }
+}
+
+
+.cd-schedule .events .events-group > ul {
+    overflow: visible; /* Without this, the single-.events do not appear. I do not understand why. */
+}
+
+.cd-schedule .events .top-info {
+    border-bottom: 1px solid #EAEAEA;
+    border-top: 1px solid #EAEAEA;
+    height: 50px;
+    overflow: hidden;
+}
+@media only screen and (min-width: 800px) {
+    .cd-schedule .events .top-info {
+        height: 50px;
+    }
+}
+
+/******************************* MOBILE FULL CALENDAR *****************************/
+.cd-schedule.mobileFull .events .events-group {
+    width: 20%; /* This determines the width of the events-group (days of week). 14.2% is for 7 days of week, 20% for 5. javascript checks and sets this */
+    float: left; /* floats left of the other event-groups; that's how they get lined up next to each other */
+    display: list-item;
+
+}
+
+.cd-schedule.mobileFull.showSatSun .events .events-group {
+    width: 14.285714285%;
+    float: left; /* floats left of the other event-groups; that's how they get lined up next to each other */
+    display: list-item;
+}
+
+@media only screen and (min-width: 800px) {
+
+    .cd-schedule .events .events-group {
+        /* TODO: Have javascript set the width in the HTML using $scope variable */
+        width: 14.2857142857%; /* This determines the width of the events-group (days of week). 14.2% is for 7 days of week, 20% for 5. javascript checks and sets this */
+        float: left; /* floats left of the other event-groups; that's how they get lined up next to each other */
+        display: list-item; /* events-groups that are not .selected are set to hidden by default on mobile. */
+    }
+
+    .cd-schedule .events .single-event {
+        position: absolute;
+        z-index: 3;
+        /* top position and height will be set using js */
+        width: calc(100% + 2px);
+        left: -1px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+        /* reset style */
+        -ms-flex-negative: 1;
+        flex-shrink: 1;
+        /*float: left;*/
+
+        /* TODO: make text-overflow: ellipsis work */
+        overflow: hidden;
+    }
+
+    .cd-schedule .events .single-event.selected-event {
+        /* the .selected-event class is added when an user select the event */
+        visibility: hidden;
+    }
+}
+
+
+@media only screen and (min-width: 1000px) {
+    .cd-schedule .events {
+        /* width adjusted and margin given to make room for the times on left */
+        width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+}
+
+
+/* .event-name (<em>), .event-time (<span>), and .event-loc (<em>) display class information for each single-event. */
+/* They are classes added in the javascript, singleEventMaker.service; they will not be found in the .html files. */
+.cd-schedule .event-name, .event-time, .event-loc {
+    display: block;
+    color: white;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 2px;
+}
+
+.cd-schedule .break .event-name {
+    position: relative;
+    top: 50%;
+}
+
+/* single-event font-size */
+.cd-schedule .event-name, .event-loc {
+    font-size: 1.5rem;
+}
+
+/* modal font sizes */
+.cd-schedule .event-name-modal, .event-location-modal {
+    font-size: 3rem;
+}
+.cd-schedule .event-time-modal {
+    font-size: 2rem;
+}
+
+@media only screen and (min-width: 800px) {
+    /* Increase font size slightly in the larger view. */
+
+    .cd-schedule .event-name, .event-loc {
+        font-size: 2rem;
+    }
+
+    .cd-schedule .event-name-modal, .event-location-modal {
+        font-size: 3rem;
+    }
+    .cd-schedule .event-time-modal {
+        font-size: 2rem;
+    }
+
+
+}
+
+.cd-schedule .event-time {
+    opacity: .7;
+    line-height: 1.2;
+    margin-bottom: .2em;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------------------
+
+                              .event-modal styles - the pop-up that appears when an event is clicked
+
+--------------------------------------------------------------------------------------------------------------------- */
+
+/*
+  reset flex
+ */
+
+/* When the .cd-schedule element doesn't also have the "modal-is-open" class, the modal is hidden. */
+.cd-schedule .event-modal {
+    position: fixed;
+    z-index: 103; /* cover navigation header and arrows */
+    visibility: hidden; /* Hide modal */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.cd-schedule.modal-is-open .event-modal {
+    /* .modal-is-open class is added as soon as an event is selected */
+    visibility: visible;
+}
+
+.cd-schedule .event-modal .modalHeader {
+    position: relative;
+    height: 70px;
+    /* vertically center its content */
+    display: table; /* let the element behave like a <table> element */
+    width: 100%;
+}
+
+/* .content div contains all the information in the header */
+.cd-schedule .event-modal .modalHeader .content {
+    position: relative;
+    display: table-cell; /* vertically center inside its parent */
+    vertical-align: middle;
+    padding: .6em 5%;
+}
+
+/* Set properties of the body of event-modal, which is the div that contains the event information */
+.cd-schedule .event-modal .modal-body {
+    position: relative;
+    width: 100%;
+    /* 70px is the .modalHeader height */
+    height: calc(100% - 70px);
+    background-color: #ebebeb;
+}
+
+.cd-schedule .event-modal .event-info {
+    position: relative;
+    z-index: 6;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cd-schedule .event-modal .event-info > div {
+    overflow: auto; /* If overflow is clipped, a scroll-bar should be added to see rest of content. */
+    height: 100%;
+    padding: 14em 5%;
+}
+
+.cd-schedule .event-modal .body-bg {
+    /* these are the modal backgrounds - visible on desktop only */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+}
+
+/* this is the 'X' icon; it's a link <a> */
+.cd-schedule .event-modal .close, .moreOptionsModal .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9; /* needs to be 1 more than the .event-info, which is 1 more than the .event-modal. */
+    background: rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    text-indent: 100%;
+    height: 70px;
+    width: 70px;
+}
+
+.cd-schedule .event-modal .close:hover, .moreOptionsModal .close:hover {
+    background-color: #cdcdcd;
+}
+
+.cd-schedule .event-modal .close:hover::before, .cd-schedule .event-modal .close:hover::after,
+.moreOptionsModal .close:hover::before, .moreOptionsModal .close:hover::after {
+    width: 3px;
+}
+
+.cd-schedule .event-modal .close::before, .cd-schedule .event-modal .close::after,
+.moreOptionsModal .close::before, .moreOptionsModal .close::after {
+    /* these are the two lines of the 'X' icon */
+    /* the empty content '', when given a height and width, creates lines. They're rotated in :before and :after. */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 22px;
+    background: white;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+/* the following 2 blocks of code rotate the two | | visuals which are produced by the content: '' and its css properties*/
+.cd-schedule .event-modal .close::before, .moreOptionsModal .close::before {
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.cd-schedule .event-modal .close::after, .moreOptionsModal .close::after {
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+
+.downloadDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cd-schedule .event-modal .event-info .classDescription {
+    padding: .5em 3em 1em;
+}
+
+.cd-schedule .event-modal .event-info .classTitle {
+    padding: .5em 1.5em .25em; /* top, right-and-left, bottom */
+    font-size: 2em;
+}
+
+.extended-information-startEndDateEnd, .extended-information-startEndDateStart {
+    padding-left: 9px; /* Align with the beginning of the text "Start/End dates:", which is ended via a bullet point */
+}
+
+@media all and (min-width: 800px) {
+    .cd-schedule .event-modal {
+        /* reset style */
+        right: auto;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        top: 10%;
+    }
+
+    .cd-schedule .event-modal .modalHeader {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 33%;
+    }
+
+    .cd-schedule .event-modal .modalHeader .content {
+        /* reset style */
+        display: block;
+        padding: .8em;
+    }
+
+    .cd-schedule .event-modal .event-info .classTitle {
+        padding: 1em 1.5em .5em;
+        font-size: 2em;
+    }
+
+    .cd-schedule .event-modal .event-info .classDescription {
+        padding: .5em 3em 1em;
+    }
+
+    .cd-schedule .event-modal .modal-body {
+        height: 100%;
+        width: 67%;
+        margin-left: 33%;
+    }
+
+    .cd-schedule .event-modal .body-bg {
+        opacity: 0;
+    }
+
+    .cd-schedule .event-modal .close, .cd-schedule .event-modal .event-info,
+    .moreOptionsModal .close {
+        opacity: 1;
+    }
+
+    .cd-schedule .event-modal .close, .moreOptionsModal .close {
+        width: 40px;
+        height: 40px;
+        background: transparent;
+    }
+
+    .cd-schedule .event-modal .close::after, .cd-schedule .event-modal .close::before,
+    .moreOptionsModal .close::after, .moreOptionsModal .close::before {
+        background: #222222;
+        height: 16px;
+    }
+
+    .cd-schedule .cover-layer {
+        /* layer between the content and the modal window */
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* The following 2 queries were nested inside the previous one, but IE doesn't register it. */
+@media all and (min-height: 600px) and (min-width: 800px) {
+    .cd-schedule .event-modal {
+        height: 480px;
+        top: calc((100% - 480px) / 2)
+    }
+}
+
+@media all and (min-width: 1000px) {
+    .cd-schedule .event-modal {
+        width: 800px;
+        left: calc((100% - 800px) / 2);
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .cd-schedule .event-modal .modalHeader .content {
+        padding: 1.2em;
+    }
+}
+
+
+.cd-schedule.modal-is-open .event-modal .event-info > div {
+    /* smooth scroll on iOS touch devices */
+    -webkit-overflow-scrolling: touch;
+}
+
+@media only screen and (min-width: 800px) {
+    .cd-schedule.animation-completed .event-modal .close,
+    .cd-schedule.content-loaded.animation-completed .event-modal .event-info {
+        /* 	the .animation-completed class is added when the modal animation is completed
+                the .content-loaded class is added when the modal content has been loaded (using ajax) */
+        opacity: 1;
+    }
+
+    .cd-schedule.modal-is-open .body-bg {
+        opacity: 1;
+    }
+}
+
+/* This is what controls the background becoming more grey as the event-modal is transitioned in. */
+.cd-schedule .cover-layer {
+    /* layer between the content and the modal window */
+    position: fixed;
+    z-index: 8;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.cover-layer.modal-is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cd-schedule.modal-is-open .cover-layer {
+    opacity: 1;
+    /* TODO:  I don't actually understand how this turns opaque. I understand why it goes from hidden (which is just equivalent to opacity 0) to visible,
+                    TODO:  as when the modal is open, .cd-schedule is updated w/ .modal-is-open, so the cover layer appears behind the modal. However, if the opacity is 1
+                    TODO:  here, opposed to something like .8, why is the cover-layer not just solid black? It looks like it's opacity ~.8, but here it's just set to 1. */
+
+    visibility: visible;
+}
+
+.cd-schedule .event-modal .extended-information {
+    color: white;
+}
+
+/* By default, hide the "extended-info" on the event modal */
+/* REMOVED 2-12: No longer hiding extended information. Keeping the ability to re-implement.
+.cd-schedule .event-modal .extended-information {
+    visibility: hidden;
+    color: white;
+}
+
+@media only screen and (min-width: 800px) {
+    .cd-schedule.modal-is-open .event-modal .extended-information {
+        visibility: visible;
+    }
+}
+*/
+
+/* When the extended information is marked open (the link is clinked), unhide it */
+/*
+.cd-schedule.modal-is-open .event-modal .extended-information.extended-is-open {
+    visibility: visible;
+}
+
+.more-information-modal {
+    color: white;
+    background-color: black;
+    padding: 10px
+}
+@media only screen and (min-width: 800px) {
+    .cd-schedule.modal-is-open .more-information-modal {
+        visibility: hidden;
+    }
+}
+*/
+
+/* ---------------------------------------------------------------------------------------------------------------------
+                              .event-modal styles - the pop-up that appears when an event is clicked
+--------------------------------------------------------------------------------------------------------------------- */

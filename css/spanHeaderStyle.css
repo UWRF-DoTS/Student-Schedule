@@ -1,0 +1,194 @@
+/* BEGIN #spanHeader AND CHILDREN */
+
+@font-face {
+    font-family: 'Whitman';
+    src: url('/fonts/whit.ttf');
+}
+
+#spanHeader {
+    background-color: #BE0F34;
+    border-bottom: 2px solid #fff;
+    height: 100px;
+    left: 0;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+
+    font-family: 'Gotham SSm A', 'Gotham SSm B', san-serif;
+    font-weight: 400;
+
+}
+
+/* MY CHANGE */
+#spanHeader li {
+    line-height: 1.5em;
+}
+/* MY CHANGE */
+#spanHeader p {
+    font-size: 10.24px;
+    line-height: 1.75em;
+}
+/* MY CHANGE */
+.toolItem>ul {
+    font-size: 12px;
+}
+
+#header {
+    position: relative;
+    margin: auto;
+    background-color: #BE0F34;
+    height: 75px;
+    max-width: 1110px;
+    padding: 20px 15px 5px 25px;
+    font-family: 'Gotham SSm A', 'Gotham SSm B', san-serif;
+    font-weight: 400;
+}
+
+#header a {
+    font-size: 1em;
+}
+
+#wordmark a:focus {
+    border: none;
+}
+#wordmark {
+    float: left;
+    position: relative;
+    width: 40%;
+    text-align: left;
+    top: 15px;
+}
+#wordmark img {
+    display: block;
+    margin-bottom: 10px;
+    max-width: 380px;
+    width: 100%;
+}
+
+#toolContainer {
+    position: relative;
+    float: right;
+    text-align: right;
+    width: 60%;
+}
+#toolContainer a {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+#toolContainer a:visited {
+    color: #fff;
+}
+.toolItem {
+    display: inline-block;
+    height: auto;
+    padding: 0 0 8px;
+    position: relative;
+    text-align: center;
+    width: 19%;
+    /*min-width: 97px;*/
+    /*max-width: 99px;*/
+
+}
+.toolItem:hover, .toolItem.hover {
+    background-color: #666768;
+}
+.toolItem>a>img {
+    width: 30px;
+    padding-bottom: 5px;
+    padding-top: 8px;
+    color: #be0f34;
+}
+.toolItem>ul, .toolItem>div {
+    background-color: #666768;
+    display: none;
+    margin: 8px 0 0;
+    position: absolute;
+    text-align: left;
+    min-width: 150px;
+    z-index: 999;
+    list-style-type: none;
+    border-radius: 0 0 8px 8px;
+    padding: 0 10%;
+    font-size: 12px;
+    left: 0;
+}
+.toolItem>.spanLeft, .toolItem>.spanLeft {
+    border-radius: 0 0 8px 8px;
+}
+.toolItem:hover>ul, .toolItem:hover>div, .toolItem.hover>ul, .toolItem.hover>div {
+    display: block;
+}
+.toolItem.search>div {
+    top: 28px;
+    height: 150px;
+    width: 350px;
+}
+.toolItem.search>div>div {
+    margin: auto;
+    padding: 70px 0 20px 20px;
+}
+.toolItem.search table {
+    width: 100%;
+}
+.toolItem.search input[type=text] {
+    width: 99%;
+}
+.toolItem>ul>li:first-child {
+    padding-top: 10px;
+}
+.toolItem>ul>li:last-child {
+    padding-bottom: 10px;
+}
+.toolItem>ul>li:hover, .toolItem.hover>ul>li {
+    color: #8B8C8D;
+    text-decoration: underline;
+}
+.toolItem a {
+    text-decoration: none;
+}
+
+/* END OF #spanHeader AND CHILDREN */
+
+#printWordmark p {
+    display: none;
+}
+
+​ #translate:hover>div>.spanLeft * {
+    display: block;
+}
+
+.spanLeft {
+    left: auto !important;
+    right: 0;
+}
+
+.centerIcon {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    clear: both;
+    display: block;
+}
+
+.goog-te-menu-frame.skiptranslate {
+    z-index: -1;
+}
+
+
+
+
+
+/*
+
+#toolContainerMobile, #topNavigationMobile, #mobileNavigation {
+    display: none;
+}
+
+#toolContainer a:focus, #footer a:focus {
+    border: 1px dotted #fff;
+    display: block;
+}
+*/

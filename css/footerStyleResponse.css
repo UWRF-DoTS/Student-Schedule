@@ -1,0 +1,51 @@
+@media only screen and (max-width:800px) {
+
+    #footer > div {
+        display: table-row;
+        float: none;
+        clear: both;
+        border: none;
+    }
+
+    #footer {
+        display: table;
+    }
+
+    #footer div {
+        width: 96% !important;
+        padding-left: 2%;
+        padding-right: 2%;
+        float: left;
+        text-align: center;
+    }
+
+    #footer ul {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #footer div.footerIcon>div {
+        display: block;
+        margin: auto 10px;
+    }
+    #footer div.footerIcon>div>a {
+        width: auto;
+        margin: 0 5px;
+    }
+
+
+
+    div.textArea {
+        width: 100%;
+        padding: 1%;
+    }
+    /* TODO: I don't think decorativecontainer exists. */
+    #decorativeContainer div.textArea {
+        width: 98%;
+    }
+
+
+
+
+}
